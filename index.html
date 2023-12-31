@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📡</text></svg>">
+  <title>Static</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+
+    #message {
+      font-size: 24px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="message">Set me with the 'message' query parameter</div>
+  <div id="detail">Set me with the 'detail' query parameter</div>
+  <div id="title-hint"></div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    const title = urlParams.get('title');
+    if (title) {
+        document.title = title;
+    } else {
+        document.getElementById('title-hint').textContent = "You can also set the page title with the 'title' query parameter";
+    }
+    const message = urlParams.get('message');
+    if (message) {
+        document.getElementById('message').textContent = message;
+    }
+    const detail = urlParams.get('detail');
+    if (detail) {
+        document.getElementById('detail').textContent = detail;
+    }
+  </script>
+</body>
+</html>
